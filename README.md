@@ -1,17 +1,16 @@
-# VISTA-S: Visual Interface System for Target Assessment - Space
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python" alt="Python Version">
+  <img src="https://img.shields.io/badge/PyTorch-1.9%2B-orange?style=for-the-badge&logo=pytorch" alt="PyTorch Version">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+</p>
 
-![VISTA-S Logo](https://img.shields.io/badge/VISTA--S-Space%20Object%20Detection-blue?style=for-the-badge&logo=satellite)
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)
-![React](https://img.shields.io/badge/React-18%2B-blue?style=for-the-badge&logo=react)
-![YOLOv8](https://img.shields.io/badge/YOLOv8-AI%20Model-green?style=for-the-badge)
+<h1 align="center">VISTA-S: Visual Inference System for Target Assessment  </h1>
+<h2 align="center">DualityAI Space Station Model </h2>
 
-## 🚀 Overview
-
-VISTA-S is an advanced AI-powered object detection system specifically designed for space station safety operations. It uses a custom-trained YOLOv8 model to detect three critical objects in space environments:
-
-- 🧯 **Fire Extinguisher**
-- 🫁 **Oxygen Tank** 
-- 🧰 **Toolbox/Toolkit**
+<p align="center">
+  <b>Welcome to <strong>VISTA</strong></b> — an advanced, high-performance AI model designed for <b>object detection</b> with unparalleled precision.
+  Inspired by the vast complexity and endless wonder of space exploration, VISTA brings cutting-edge computer vision capabilities to your fingertips. 🌌
+</p>
 
 ---
 
@@ -26,14 +25,19 @@ VISTA-S is an advanced AI-powered object detection system specifically designed 
 
 ## 📸 Glimpse of VISTA in Action
 
-![image](https://github.com/user-attachments/assets/dd193d48-df47-4687-8eda-10ce44a7e0d4)
-
+![Screenshot 2025-06-26 111639](https://github.com/user-attachments/assets/ef5defcd-19df-4515-be84-acdd09346f24)
 
 <br>
 
-![image](https://github.com/user-attachments/assets/da6f8f5e-2834-4007-9003-6ee1eaab3798)
+![Screenshot 2025-06-26 111656](https://github.com/user-attachments/assets/bd32a41b-ecf9-48e3-b233-11f638d9783c)
 
+<br>
 
+![Screenshot 2025-06-26 111707](https://github.com/user-attachments/assets/ad7b5e0a-3c0a-47b6-8202-efc10d108cd2)
+
+<br>
+
+![Screenshot 2025-06-26 111724](https://github.com/user-attachments/assets/1b65551c-454b-4799-b8dc-136a10ea9b26)
 
 ---
 
@@ -216,28 +220,21 @@ For major changes or new features, please open an issue first to discuss the pro
 
 ---
 
+## 👥 Team
+
+- **@siyajha919-o** - Project Lead & Core Developer
+- **@Rishikesh-Jadhav** - Collaborator
+
+---
+
 ## 📄 License
 
 This project is open-source and licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
 
 ---
 
-## 👥 Team
-
-- **@siyajha919-o** - Project Lead & Core Developer
-- **@Rishikesh-Jadhav** - Collaborator
-
-## 🔗 Links
-
-- **Repository**: https://github.com/siyajha919-o/VISTA-S
-- **Demo Video**: Coming Soon
-- **Documentation**: See `/docs` folder
-- **Contributors**: See `CONTRIBUTORS.md`
-
----
-
 <p align="center">
-  ✨ Enjoy exploring the universe of possibilities with Observo! <br>
+  ✨ Enjoy exploring the universe of possibilities with VISTA! <br>
   Feel free to ⭐️ the repository, open issues, or contribute to its growth.<br>
   Your feedback and contributions are highly valued.
 </p>
