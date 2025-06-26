@@ -1,16 +1,17 @@
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python" alt="Python Version">
-  <img src="https://img.shields.io/badge/PyTorch-1.9%2B-orange?style=for-the-badge&logo=pytorch" alt="PyTorch Version">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
-</p>
+# VISTA-S: Visual Interface System for Target Assessment - Space
 
-<h1 align="center">VISTA-S: Visual Inference System for Target Assessment  </h1>
-<h2 align="center">DualityAI Space Station Model </h2>
+![VISTA-S Logo](https://img.shields.io/badge/VISTA--S-Space%20Object%20Detection-blue?style=for-the-badge&logo=satellite)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python)
+![React](https://img.shields.io/badge/React-18%2B-blue?style=for-the-badge&logo=react)
+![YOLOv8](https://img.shields.io/badge/YOLOv8-AI%20Model-green?style=for-the-badge)
 
-<p align="center">
-  <b>Welcome to <strong>VISTA</strong></b> — an advanced, high-performance AI model designed for <b>object detection</b> with unparalleled precision.
-  Inspired by the vast complexity and endless wonder of space exploration, VISTA brings cutting-edge computer vision capabilities to your fingertips. 🌌
-</p>
+## 🚀 Overview
+
+VISTA-S is an advanced AI-powered object detection system specifically designed for space station safety operations. It uses a custom-trained YOLOv8 model to detect three critical objects in space environments:
+
+- 🧯 **Fire Extinguisher**
+- 🫁 **Oxygen Tank** 
+- 🧰 **Toolbox/Toolkit**
 
 ---
 
