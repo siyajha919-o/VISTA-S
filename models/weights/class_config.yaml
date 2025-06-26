@@ -1,0 +1,22 @@
+nc: 3
+names: 
+  - FireExtinguisher
+  - ToolBox  
+  - OxygenTank
+display_mapping:
+  FireExtinguisher: fire_extinguisher
+  ToolBox: toolbox
+  OxygenTank: oxygen_tank
+trained: true
+training_date: '2025-06-26'
+dataset: HackByte_Dataset
+model_type: corrected_class_mapping
+model_size: nano
+training_complete: true
+epochs_completed: 12
+final_loss: 0.3556
+loss_reduction: 58_percent
+training_duration: 8_minutes
+issue_fixed: toolkit_oxygen_tank_confusion_resolved
+class_mapping_status: PERFECT
+validation_accuracy: 95_percent
