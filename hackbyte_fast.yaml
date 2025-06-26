@@ -1,9 +1,0 @@
-names:
-- FireExtinguisher
-- ToolBox
-- OxygenTank
-nc: 3
-path: c:\Users\siyaj\OneDrive\Desktop\Final codeclash2.0\HackByte_Dataset
-test: data/test/images
-train: data/train/images
-val: data/val/images

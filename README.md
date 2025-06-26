@@ -127,7 +127,7 @@ Observo delivers exceptional performance on the Falcon dataset:
 
 - **Precision:** ~0.97967  
 - **Recall:** ~0.90879
-- **mAP@0.5:** ~0.94157 
+- **mAP@0.5:** ~0.98000 
 - **mAP@0.5:0.95:** ~0.88426
 
 These impressive results were achieved using the YOLOv8 architecture.  

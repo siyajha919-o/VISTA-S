@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 import logging
-from routes import routes
+from .routes import routes
 import os
 from pathlib import Path
 from ultralytics import YOLO
