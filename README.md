@@ -222,6 +222,20 @@ This project is open-source and licensed under the **MIT License**. See the [LIC
 
 ---
 
+## 👥 Team
+
+- **@siyajha919-o** - Project Lead & Core Developer
+- **@Rishikesh-Jadhav** - Collaborator
+
+## 🔗 Links
+
+- **Repository**: https://github.com/siyajha919-o/VISTA-S
+- **Demo Video**: Coming Soon
+- **Documentation**: See `/docs` folder
+- **Contributors**: See `CONTRIBUTORS.md`
+
+---
+
 <p align="center">
   ✨ Enjoy exploring the universe of possibilities with Observo! <br>
   Feel free to ⭐️ the repository, open issues, or contribute to its growth.<br>
