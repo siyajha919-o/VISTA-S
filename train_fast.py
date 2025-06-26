@@ -1,7 +1,3 @@
-"""
-VISTA-S FAST Training with HackByte_Dataset
-Optimized for speed with reduced epochs and faster settings
-"""
 import os
 import shutil
 import yaml
@@ -9,26 +5,23 @@ from pathlib import Path
 from ultralytics import YOLO
 
 def fast_train_hackbyte():
-    """Fast training with optimized parameters"""
     print("🚀 FAST Training Mode - HackByte_Dataset")
     print("⚡ Optimized for speed with reduced epochs")
     print("=" * 50)
     
-    # Dataset paths
     dataset_root = Path("c:/Users/siyaj/OneDrive/Desktop/Final codeclash2.0/HackByte_Dataset")
     
     if not dataset_root.exists():
         print(f"❌ HackByte_Dataset not found at {dataset_root}")
         return False
     
-    # Create optimized YOLO config with CORRECT class mapping
     fast_config = {
         'path': str(dataset_root.absolute()),
         'train': 'data/train/images',
         'val': 'data/val/images',
         'test': 'data/test/images',
         'nc': 3,
-        'names': ['FireExtinguisher', 'ToolBox', 'OxygenTank']  # Match dataset exactly!
+        'names': ['FireExtinguisher', 'ToolBox', 'OxygenTank']
     }
     
     config_path = Path("hackbyte_fast.yaml")
@@ -37,63 +30,60 @@ def fast_train_hackbyte():
     
     print(f"✅ Fast training config created")
     
-    # Use smaller, faster model
     print("🧠 Using YOLOv8n (nano) for faster training...")
-    model = YOLO('yolov8n.pt')  # Nano model is much faster
+    model = YOLO('yolov8n.pt')
     
-    # HYPER-OPTIMIZED training parameters for MAXIMUM SPEED
     fast_params = {
         'data': str(config_path.absolute()),
-        'epochs': 12,          # OPTIMIZED: 12 epochs for balance
-        'imgsz': 320,          # SMALLER: 320x320 for maximum speed
-        'batch': 64,           # LARGER: 64 batch size for efficiency
+        'epochs': 12,
+        'imgsz': 320,
+        'batch': 64,
         'name': 'hackbyte_hyper_fast',
         'save': True,
-        'plots': False,        # DISABLED: No plots for speed
-        'patience': 2,         # ULTRA-AGGRESSIVE: Early stop after 2 epochs
+        'plots': False,
+        'patience': 2,
         'device': 'cpu',
-        'workers': 16,         # MAXIMUM: 16 workers for full CPU
-        'optimizer': 'SGD',    # SGD is fastest optimizer
-        'lr0': 0.02,           # HIGHER: Even faster learning rate
-        'cache': 'ram',        # FASTEST: RAM cache for all images
+        'workers': 16,
+        'optimizer': 'SGD',
+        'lr0': 0.02,
+        'cache': 'ram',
         'single_cls': False,
-        'rect': True,          # Rectangular training saves compute
-        'cos_lr': False,       # DISABLED: Constant LR for speed
-        'close_mosaic': 0,     # IMMEDIATE: Disable mosaic from start
-        'warmup_epochs': 0.3,  # MINIMAL: Tiny warmup
+        'rect': True,
+        'cos_lr': False,
+        'close_mosaic': 0,
+        'warmup_epochs': 0.3,
         'warmup_momentum': 0.5,
-        'box': 5.0,            # REDUCED: Lower loss weights for speed
+        'box': 5.0,
         'cls': 0.3,
         'dfl': 1.0,
-        'val': False,          # DISABLED: No validation during training
-        'verbose': False,      # DISABLED: Minimal logging
-        'save_period': -1,     # DISABLED: No intermediate saves
-        'profile': False,      # DISABLED: No profiling
-        'amp': False,          # DISABLED: No mixed precision on CPU
-        'fraction': 0.85,      # OPTIMIZED: Use 85% of dataset for speed
-        'freeze': None,        # No layer freezing
-        'multi_scale': False,  # DISABLED: Single scale for speed
+        'val': False,
+        'verbose': False,
+        'save_period': -1,
+        'profile': False,
+        'amp': False,
+        'fraction': 0.85,
+        'freeze': None,
+        'multi_scale': False,
         'overlap_mask': True,
         'mask_ratio': 4,
-        'dropout': 0.0,        # No dropout for speed
+        'dropout': 0.0,
         
-        # ZERO AUGMENTATIONS FOR MAXIMUM SPEED
-        'hsv_h': 0.0,          # NO HSV augmentation
+        'hsv_h': 0.0,
         'hsv_s': 0.0,
         'hsv_v': 0.0,
-        'degrees': 0.0,        # NO rotation
-        'translate': 0.0,      # NO translation
-        'scale': 0.0,          # NO scaling
-        'shear': 0.0,          # NO shearing
-        'perspective': 0.0,    # NO perspective
-        'flipud': 0.0,         # NO vertical flip
-        'fliplr': 0.2,         # MINIMAL horizontal flip only
-        'mosaic': 0.0,         # NO mosaic
-        'mixup': 0.0,          # NO mixup
-        'copy_paste': 0.0,     # NO copy-paste
-        'auto_augment': False, # NO auto augment
-        'erasing': 0.0,        # NO random erasing
-        'crop_fraction': 1.0,  # NO cropping
+        'degrees': 0.0,
+        'translate': 0.0,
+        'scale': 0.0,
+        'shear': 0.0,
+        'perspective': 0.0,
+        'flipud': 0.0,
+        'fliplr': 0.2,
+        'mosaic': 0.0,
+        'mixup': 0.0,
+        'copy_paste': 0.0,
+        'auto_augment': False,
+        'erasing': 0.0,
+        'crop_fraction': 1.0,
     }
     
     print("🏃 HYPER-SPEED OPTIMIZATIONS APPLIED:")
@@ -114,10 +104,8 @@ def fast_train_hackbyte():
     print("Estimated time: 5-7 minutes (ultra-optimized)")
     
     try:
-        # Train with fast settings
         results = model.train(**fast_params)
         
-        # Copy the trained model
         runs_dir = Path("runs/detect")
         model_dirs = [d for d in runs_dir.glob("hackbyte_hyper_fast*") if d.is_dir()]
         if model_dirs:
@@ -125,26 +113,23 @@ def fast_train_hackbyte():
             best_model_path = latest_model_dir / "weights" / "best.pt"
             
             if best_model_path.exists():
-                # Backup existing model
                 existing_model = Path("models/weights/best.pt")
                 if existing_model.exists():
                     shutil.copy2(existing_model, "models/weights/best_backup_fast.pt")
                     print("📦 Backed up existing model")
                 
-                # Copy new model
                 Path("models/weights").mkdir(parents=True, exist_ok=True)
                 shutil.copy2(best_model_path, "models/weights/best.pt")
                 print("✅ Fast-trained model saved!")
                 
-                # Update config with correct class names
                 config_data = {
                     'nc': 3,
-                    'names': ['FireExtinguisher', 'ToolBox', 'OxygenTank'],  # Correct dataset classes
-                    'mapped_names': ['fire_extinguisher', 'toolbox', 'oxygen_tank'],  # Our desired names
+                    'names': ['FireExtinguisher', 'ToolBox', 'OxygenTank'],
+                    'mapped_names': ['fire_extinguisher', 'toolbox', 'oxygen_tank'],
                     'class_mapping': {
-                        0: 'fire_extinguisher',  # FireExtinguisher -> fire_extinguisher
-                        1: 'toolbox',            # ToolBox -> toolbox  
-                        2: 'oxygen_tank'         # OxygenTank -> oxygen_tank
+                        0: 'fire_extinguisher',
+                        1: 'toolbox',
+                        2: 'oxygen_tank'
                     },
                     'trained': True,
                     'training_date': '2025-06-26',

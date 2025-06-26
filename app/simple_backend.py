@@ -3,7 +3,6 @@ from flask_cors import CORS
 import os
 import logging
 
-# Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 

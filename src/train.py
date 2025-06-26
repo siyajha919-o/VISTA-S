@@ -11,13 +11,11 @@ def patch_torchvision_nms_to_cpu():
             original_nms = torchvision.ops.nms
             
             def cpu_nms(boxes, scores, iou_threshold):
-                
                 boxes_cpu = boxes.cpu() if boxes.is_cuda else boxes
                 scores_cpu = scores.cpu() if scores.is_cuda else scores
                 indices = original_nms(boxes_cpu, scores_cpu, iou_threshold)
                 return indices
             
-   
             torchvision.ops.nms = cpu_nms
             print("Patched torchvision NMS to use CPU backend")
     except Exception as e:
@@ -25,31 +23,26 @@ def patch_torchvision_nms_to_cpu():
 
 def main():
     try:
-        # Check for GPU availability
         device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         print(f"Using device: {device}")
         if device == 'cuda:0':
             print(f"GPU: {torch.cuda.get_device_name(0)}")
-            # Apply NMS patch if using CUDA
             patch_torchvision_nms_to_cpu()
             
-        
         data_config = os.path.join(os.path.dirname(__file__), '../data/raw/yolo_params.yaml')
-        
         
         if not os.path.exists(data_config):
             raise FileNotFoundError(f"Configuration file not found: {data_config}")
-        
 
-        model = YOLO('yolov8s.pt')  # Using YOLOv8 small model
+        model = YOLO('yolov8s.pt')
         
         print(f"Starting training with configuration from {data_config}")
 
         results = model.train(
             data=data_config,
-            epochs=200,  # Reduced epochs for faster training and less memory usage
-            imgsz=512,  # Reduced image size
-            batch=4,    # Reduced batch size
+            epochs=200,
+            imgsz=512,
+            batch=4,
             project='../models/logs',
             name='yolov8_observo',
             exist_ok=True,

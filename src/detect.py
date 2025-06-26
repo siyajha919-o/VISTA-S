@@ -1,26 +1,21 @@
 import os, cv2
 from ultralytics import YOLO
 
-# Custom class names for VISTA-S
 VISTA_CLASSES = ['fire_extinguisher', 'oxygen_tank', 'toolbox']
 
 def detect(image_path, model_path='models/weights/best.pt', save_dir=None):
-    # Default save directory if not provided
     if save_dir is None:
         save_dir = os.environ.get('SAVE_DIR', 'models/logs/detect')
     
-    # Make sure directories exist
     os.makedirs(save_dir, exist_ok=True)
     
-    # Load the model - try custom model first, then fallback
     if not os.path.exists(model_path):
         print(f"Custom model not found at {model_path}")
-        # Try alternative locations
         alt_paths = [
             'config/best.pt',
             'models/best.pt', 
             'models/logs/yolov8_observo/weights/best.pt',
-            'yolov8n.pt'  # Generic fallback
+            'yolov8n.pt'
         ]
         
         model_found = False
@@ -40,15 +35,10 @@ def detect(image_path, model_path='models/weights/best.pt', save_dir=None):
     
     model = YOLO(model_path)
     
-    # Run inference - use smaller image size for our trained model
-    # Our model was trained on 320x320 images, so use that for better detection
     results = model.predict(source=image_path, save=True, save_dir=save_dir, imgsz=320, conf=0.25)
     
-    # If using generic model, filter/remap results to VISTA classes
     if 'yolov8n.pt' in model_path:
         print("🔄 Filtering results for VISTA-S classes...")
-        # You can add logic here to map generic detections to your classes
-        # For now, we'll just warn the user
     
     print(f"Detections saved to {save_dir}")
     return results
