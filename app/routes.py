@@ -7,27 +7,22 @@ import uuid
 from datetime import datetime
 from ultralytics import YOLO
 
-# Add the parent directory to sys.path to import from src
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 logger = logging.getLogger(__name__)
 
 routes = Blueprint('routes', __name__)
 
-# Use absolute path for uploads in production, or relative path in development
 UPLOAD = os.environ.get('UPLOAD_DIR', 'uploads')
 os.makedirs(UPLOAD, exist_ok=True)
 
-# Define model path based on environment
 MODEL_PATH = os.environ.get('MODEL_PATH', os.path.join(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))), 'models', 'weights', 'best.pt'))
 
-# Load the trained model
 try:
     if os.path.exists(MODEL_PATH):
         model = YOLO(MODEL_PATH)
         logger.info(f"✅ Loaded trained model from {MODEL_PATH}")
-        # HackByte dataset class mapping
         class_mapping = {0: 'fire_extinguisher',
                          1: 'toolbox', 2: 'oxygen_tank'}
         logger.info(f"✅ Model classes: {model.names}")
@@ -70,11 +65,10 @@ def api_detect():
         file.save(path)
         logger.info(f"File saved to {path}")
 
-        # Use the trained model with correct settings
         results = model.predict(
-            path,              # Use the saved file path
-            conf=0.25,         # Confidence threshold for detection
-            imgsz=320,         # Match training image size
+            path,
+            conf=0.25,
+            imgsz=320,
             device='cpu',
             verbose=False
         )
@@ -89,7 +83,6 @@ def api_detect():
 
             if result.boxes is not None:
                 for i, box in enumerate(result.boxes):
-                    # Get class ID and confidence
                     class_id = int(box.cls[0])
                     confidence = float(box.conf[0])
                     original_label = result.names[class_id]
@@ -97,19 +90,15 @@ def api_detect():
                     logger.info(
                         f"Detection {i}: class_id={class_id}, label='{original_label}', confidence={confidence:.3f}")
 
-                    # Map to correct class name using the trained mapping
                     if len(result.names) == 3 and all(cls in ['FireExtinguisher', 'ToolBox', 'OxygenTank'] for cls in result.names.values()):
-                        # This is our trained model with correct classes
                         mapping = {'FireExtinguisher': 'fire_extinguisher',
                                    'ToolBox': 'toolbox', 'OxygenTank': 'oxygen_tank'}
                         class_name = mapping.get(
                             original_label, original_label.lower())
                     else:
-                        # Fallback mapping for generic YOLO or unknown model
                         class_name = class_mapping.get(
                             class_id, f'class_{class_id}')
 
-                    # Get bounding box coordinates
                     x1, y1, x2, y2 = box.xyxy[0].tolist()
 
                     detection = {
