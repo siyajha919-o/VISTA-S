@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
+from app.routes import routes
+import logging
+from flask_cors import CORS
+from flask import Flask
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from flask import Flask
-from flask_cors import CORS
-import logging
-from app.routes import routes
 
 logging.basicConfig(level=logging.INFO,
-                   format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)

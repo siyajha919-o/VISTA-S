@@ -1,12 +1,12 @@
+from ultralytics import YOLO
+from datetime import datetime
+import uuid
+import logging
+from flask import Blueprint, request, render_template, send_from_directory, jsonify
+from src.detect import detect
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from src.detect import detect
-from flask import Blueprint, request, render_template, send_from_directory, jsonify
-import logging
-import uuid
-from datetime import datetime
-from ultralytics import YOLO
 
 logger = logging.getLogger(__name__)
 

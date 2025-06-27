@@ -1,14 +1,14 @@
 nc: 3
-names: 
+names:
   - FireExtinguisher
-  - ToolBox  
+  - ToolBox
   - OxygenTank
 display_mapping:
   FireExtinguisher: fire_extinguisher
   ToolBox: toolbox
   OxygenTank: oxygen_tank
 trained: true
-training_date: '2025-06-26'
+training_date: "2025-06-26"
 dataset: HackByte_Dataset
 model_type: corrected_class_mapping
 model_size: nano

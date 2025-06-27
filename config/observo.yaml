@@ -6,4 +6,4 @@ test: test/images
 
 # 3 classes for VISTA-S detection
 nc: 3
-names: ['fire_extinguisher', 'oxygen_tank', 'toolbox']
+names: ["fire_extinguisher", "oxygen_tank", "toolbox"]

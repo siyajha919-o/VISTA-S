@@ -3,9 +3,11 @@
 ## 👥 VISTA-S Development Team
 
 ### Project Lead & Core Developer
+
 - **@siyajha919-o** - Main developer, AI/ML implementation, backend architecture
 
 ### Collaborators
+
 - **@Rishikesh-Jadhav** - Collaborator
 
 ## 🤝 Contributing
@@ -37,6 +39,7 @@ This project is part of a hackathon submission. For collaboration:
 ## 🎯 Current Status
 
 ✅ **Complete & Production Ready**
+
 - Backend API functional
 - Frontend PWA deployed
 - Mobile app available

@@ -103,21 +103,21 @@ Experience VISTA-S through its interactive web application:
 
 1. **Navigate to App Directory:**
 
-    ```bash
-    cd app
-    ```
+   ```bash
+   cd app
+   ```
 
 2. **Install Requirements:**
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 3. **Start Backend Server:**
 
-    ```bash
-    python backend.py
-    ```
+   ```bash
+   python backend.py
+   ```
 
 ---
 
@@ -125,9 +125,9 @@ Experience VISTA-S through its interactive web application:
 
 Observo delivers exceptional performance on the Falcon dataset:
 
-- **Precision:** ~0.97967  
+- **Precision:** ~0.97967
 - **Recall:** ~0.90879
-- **mAP@0.5:** ~0.98000 
+- **mAP@0.5:** ~0.98000
 - **mAP@0.5:0.95:** ~0.88426
 
 These impressive results were achieved using the YOLOv8 architecture.  
@@ -238,4 +238,3 @@ This project is open-source and licensed under the **MIT License**. See the [LIC
   Feel free to ⭐️ the repository, open issues, or contribute to its growth.<br>
   Your feedback and contributions are highly valued.
 </p>
-

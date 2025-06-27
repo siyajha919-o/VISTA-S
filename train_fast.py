@@ -4,17 +4,19 @@ import yaml
 from pathlib import Path
 from ultralytics import YOLO
 
+
 def fast_train_hackbyte():
     print("🚀 FAST Training Mode - HackByte_Dataset")
     print("⚡ Optimized for speed with reduced epochs")
     print("=" * 50)
-    
-    dataset_root = Path("c:/Users/siyaj/OneDrive/Desktop/Final codeclash2.0/HackByte_Dataset")
-    
+
+    dataset_root = Path(
+        "c:/Users/siyaj/OneDrive/Desktop/Final codeclash2.0/HackByte_Dataset")
+
     if not dataset_root.exists():
         print(f"❌ HackByte_Dataset not found at {dataset_root}")
         return False
-    
+
     fast_config = {
         'path': str(dataset_root.absolute()),
         'train': 'data/train/images',
@@ -23,16 +25,16 @@ def fast_train_hackbyte():
         'nc': 3,
         'names': ['FireExtinguisher', 'ToolBox', 'OxygenTank']
     }
-    
+
     config_path = Path("hackbyte_fast.yaml")
     with open(config_path, 'w') as f:
         yaml.dump(fast_config, f, default_flow_style=False)
-    
+
     print(f"✅ Fast training config created")
-    
+
     print("🧠 Using YOLOv8n (nano) for faster training...")
     model = YOLO('yolov8n.pt')
-    
+
     fast_params = {
         'data': str(config_path.absolute()),
         'epochs': 12,
@@ -67,7 +69,7 @@ def fast_train_hackbyte():
         'overlap_mask': True,
         'mask_ratio': 4,
         'dropout': 0.0,
-        
+
         'hsv_h': 0.0,
         'hsv_s': 0.0,
         'hsv_v': 0.0,
@@ -85,7 +87,7 @@ def fast_train_hackbyte():
         'erasing': 0.0,
         'crop_fraction': 1.0,
     }
-    
+
     print("🏃 HYPER-SPEED OPTIMIZATIONS APPLIED:")
     print("  � YOLOv8n (nano) - fastest model available")
     print("  � 12 epochs (optimized balance)")
@@ -99,29 +101,31 @@ def fast_train_hackbyte():
     print("  � Higher learning rate (0.02)")
     print("  � 85% dataset for speed boost")
     print("  🚀 All images cached in RAM")
-    
+
     print(f"\n⚡ Starting HYPER-FAST training...")
     print("Estimated time: 5-7 minutes (ultra-optimized)")
-    
+
     try:
         results = model.train(**fast_params)
-        
+
         runs_dir = Path("runs/detect")
-        model_dirs = [d for d in runs_dir.glob("hackbyte_hyper_fast*") if d.is_dir()]
+        model_dirs = [d for d in runs_dir.glob(
+            "hackbyte_hyper_fast*") if d.is_dir()]
         if model_dirs:
             latest_model_dir = max(model_dirs, key=lambda x: x.stat().st_mtime)
             best_model_path = latest_model_dir / "weights" / "best.pt"
-            
+
             if best_model_path.exists():
                 existing_model = Path("models/weights/best.pt")
                 if existing_model.exists():
-                    shutil.copy2(existing_model, "models/weights/best_backup_fast.pt")
+                    shutil.copy2(existing_model,
+                                 "models/weights/best_backup_fast.pt")
                     print("📦 Backed up existing model")
-                
+
                 Path("models/weights").mkdir(parents=True, exist_ok=True)
                 shutil.copy2(best_model_path, "models/weights/best.pt")
                 print("✅ Fast-trained model saved!")
-                
+
                 config_data = {
                     'nc': 3,
                     'names': ['FireExtinguisher', 'ToolBox', 'OxygenTank'],
@@ -144,19 +148,20 @@ def fast_train_hackbyte():
                     'training_duration': '8_minutes',
                     'issue_fixed': 'class_mapping_corrected'
                 }
-                
+
                 with open('models/weights/class_config.yaml', 'w') as f:
                     yaml.dump(config_data, f, default_flow_style=False)
-                
+
                 print("🎉 HYPER-FAST TRAINING COMPLETED!")
                 print(f"📊 Results: {latest_model_dir}")
                 return True, latest_model_dir
-                
+
     except Exception as e:
         print(f"❌ Hyper-fast training failed: {e}")
         import traceback
         traceback.print_exc()
         return False, None
+
 
 if __name__ == "__main__":
     print("⚡ VISTA-S HYPER-FAST TRAINING MODE")
@@ -164,9 +169,9 @@ if __name__ == "__main__":
     print("🎯 Target: 5-7 minutes training time")
     print("⚡ Perfect for testing and development")
     print()
-    
+
     success, model_dir = fast_train_hackbyte()
-    
+
     if success:
         print("\n🎯 HYPER-FAST TRAINING SUCCESS!")
         print("✅ Model trained in ~6 minutes vs 60+ minutes")

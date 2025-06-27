@@ -9,6 +9,7 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 CORS(app)
 
+
 @app.route('/')
 def home():
     return jsonify({
@@ -20,6 +21,7 @@ def home():
         ]
     })
 
+
 @app.route('/api/health')
 def health():
     return jsonify({
@@ -27,12 +29,14 @@ def health():
         "message": "API is working correctly"
     })
 
+
 @app.route('/api/detect', methods=['POST'])
 def detect_placeholder():
     return jsonify({
         "message": "Detection endpoint placeholder - full functionality will be added once deployment is working",
         "status": "success"
     })
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
