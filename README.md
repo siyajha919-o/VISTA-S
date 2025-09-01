@@ -223,7 +223,7 @@ For major changes or new features, please open an issue first to discuss the pro
 ## 👥 Team
 
 - **@siyajha919-o** - Project Lead & Core Developer
-- **@Rishikesh-Jadhav** - Collaborator
+- **@abhijeetjha** - Collaborator
 
 ---
 
